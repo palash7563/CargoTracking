@@ -36,7 +36,7 @@ public class ConsignerSubmit extends HttpServlet {
 		Consigner C=new Consigner();
 		C.setFirmname(request.getParameter("firmname"));
 		C.setRegistration_no(request.getParameter("registration_no"));
-		C.setContactperson(request.getParameter("mobileno"));
+		C.setContactperson(request.getParameter("contactperson"));
 		C.setMobileno(request.getParameter("mobileno"));
 		C.setPhoneno(request.getParameter("phoneno"));
 		C.setEmail(request.getParameter("email"));
@@ -60,6 +60,7 @@ public class ConsignerSubmit extends HttpServlet {
 			out.println("Not Submitted");
 		}
 		out.println("</html>");
+		out.flush();
 	}
 
 }
