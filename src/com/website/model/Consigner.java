@@ -12,11 +12,19 @@ public class Consigner {
 	private String email;
 	private String address;
 	private String country;
+	private String state;
 	private String city;
 	private String deals_in;
 	private String website;
 	private String firmlogo;
 	private String password;
+	
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
 	public int getId() {
 		return id;
 	}

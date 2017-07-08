@@ -12,7 +12,7 @@ public class Dbhelper {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cargotracking","root","palash98989");
+			Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/consignertracking","root","palash98989");
 			return cn;
 		}catch(Exception e)
 		{

@@ -124,7 +124,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("State : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=State>");
+		out.println("<input type=text name=state>");
 		out.println("</td>");
 		out.println("</tr>");
 		
