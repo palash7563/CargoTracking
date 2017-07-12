@@ -3,7 +3,11 @@ package com.website.Controller;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+import org.json.JSONObject;
 
 public class Dbhelper {
 
@@ -12,7 +16,7 @@ public class Dbhelper {
 		try
 		{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/consignertracking","root","palash98989");
+			Connection cn=DriverManager.getConnection("jdbc:mysql://localhost:3306/cargotracking","root","palash98989");
 			return cn;
 		}catch(Exception e)
 		{
@@ -52,6 +56,51 @@ public class Dbhelper {
 			return false;
 		}
 	}
-	
+	public static ArrayList<JSONObject> JsonEngine(ResultSet rs)
+	{
+		ArrayList<JSONObject> resList = new ArrayList<JSONObject>();
+		try 
+		{
+			//get column names
+			ResultSetMetaData rsMeta = rs.getMetaData();
+			int columnCnt = rsMeta.getColumnCount();
+			ArrayList<String> columnNames = new ArrayList<String>();
+		
+			for(int i=1;i<=columnCnt;i++) 
+			{
+				columnNames.add(rsMeta.getColumnName(i).toUpperCase());
+			}
 
+			while(rs.next()) 
+			{
+			// convert each object to an human readable JSON object
+			JSONObject obj = new JSONObject();
+			for(int i=1;i<=columnCnt;i++) 
+				{
+					String key = columnNames.get(i - 1);
+					String value = rs.getString(i);
+					obj.put(key, value);
+				}
+			resList.add(obj);
+			}
+		
+		}
+		catch(Exception e) 
+		{
+			e.printStackTrace();
+		} 
+		finally 
+		{
+			try 
+			{
+					rs.close();
+			} 
+			catch (Exception e) 
+			{
+				e.printStackTrace();
+			}
+		}
+		return resList;
+		}
 	}
+

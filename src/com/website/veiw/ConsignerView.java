@@ -30,9 +30,13 @@ public class ConsignerView extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
+		
+		out.println("<script src=filesa/jquery-2.2.1.min.js></script>");
+		out.println("<script src=filesa/countrycitystate.js></script>");
+		
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<form action=ConsignerSubmit>");
+		out.println("<form action=ConsignerSubmit method='post' enctype='multipart/form-data'>");
 		out.println("<table>");
 		out.println("<tr>");
 		out.println("<caption>Registration Form</caption>");
@@ -43,7 +47,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Firm Name : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=firmname>");
+		out.println("<input type=text required name=firmname>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -52,7 +56,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Resigtration No : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=registration_no>");
+		out.println("<input type=text required name=registration_no>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -61,7 +65,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Owner Name : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=ownername>");
+		out.println("<input type=text required name=ownername>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -70,7 +74,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Contact Person : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=contactperson>");
+		out.println("<input type=text required name=contactperson>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -79,7 +83,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Mobile No : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=mobileno>");
+		out.println("<input type=no required size=10 name=mobileno>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -88,7 +92,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Phone No : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=phoneno>");
+		out.println("<input type=no size=10 required name=phoneno>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -97,7 +101,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("E-Mail : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=email>");
+		out.println("<input type=email  name=email>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -106,7 +110,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Address : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=address>");
+		out.println("<input type=textarea required size=20 name=address>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -115,7 +119,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Country : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=country>");
+		out.println("<select id=country required name=country></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -124,7 +128,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("State : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=state>");
+		out.println("<select id=state required name=state><option>-Select-</option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -133,7 +137,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("City : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=city>");
+		out.println("<select name=city  id=city></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -142,7 +146,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Deals In : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=deals_in>");
+		out.println("<input type=text required name=deals_in>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -160,7 +164,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("FirmLogo : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=firmlogo>");
+		out.println("<input type=file name=firmlogo>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -169,10 +173,19 @@ public class ConsignerView extends HttpServlet {
 		out.println("Passoword : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=password>");
+		out.println("<input type=password required id=password name=password>");
 		out.println("</td>");
 		out.println("</tr>");
 		
+		out.println("<tr>");
+		out.println("<td>");
+		out.println("Confirm Passoword : ");
+		out.println("</td>");
+		out.println("<td>");
+		out.println("<input type=password required id=cpassword name=cpassword>");
+		out.println("</td>");
+		out.println("</tr>");
+	
 		out.println("<tr>");
 		out.println("<td>");
 		out.println("<input type=submit>");
