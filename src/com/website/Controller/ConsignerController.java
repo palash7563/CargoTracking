@@ -1,6 +1,7 @@
 package com.website.Controller;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 
 import com.website.model.Consigner;
 
@@ -21,4 +22,20 @@ public class ConsignerController {
 			return false;
 		}
 	}
+	public static ResultSet displayAll()
+	{
+		try
+		{
+			Connection cn=Dbhelper.openConnection();
+			String q="select * from consigner";
+			ResultSet rs=Dbhelper.executequery(cn, q);
+			return(rs);
+		}
+		catch(Exception e)
+		{
+			System.out.println("ConsignerController:displayAll:"+e);
+			return null;	
+		}
+	}	
+
 }
