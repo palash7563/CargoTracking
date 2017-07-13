@@ -198,6 +198,7 @@ public class ConsignerView extends HttpServlet {
 		
 		out.println("</table>");
 		out.println("</form>");
+		out.println("<a href=mainpage>Main Page</a>");
 		out.println("</body>");
 		out.println("</html>");
 	}

@@ -2,7 +2,6 @@ package com.website.veiw;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -16,9 +15,6 @@ import org.softech.FileUpload;
 import com.website.Controller.ConsignerController;
 import com.website.model.Consigner;
 
-/**
- * Servlet implementation class ConsignerSubmit
- */
 @WebServlet("/ConsignerSubmit")
 @MultipartConfig(fileSizeThreshold=1024*1024*2,//2MB
 maxFileSize=1024*1024*10,//10MB
@@ -43,6 +39,7 @@ public class ConsignerSubmit extends HttpServlet {
 		Consigner C=new Consigner();
 		C.setFirmname(request.getParameter("firmname"));
 		C.setRegistration_no(request.getParameter("registration_no"));
+		C.setOwnername(request.getParameter("ownername"));
 		C.setContactperson(request.getParameter("contactperson"));
 		C.setMobileno(request.getParameter("mobileno"));
 		C.setPhoneno(request.getParameter("phoneno"));
@@ -65,7 +62,8 @@ public class ConsignerSubmit extends HttpServlet {
 		out.println("<html>");
 		if(st)
 		{
-			out.println("Record Submitted");
+			out.println("Record Submitted<br>");
+			out.println("<a href=ConsignerView>Insert Another</a>");
 		}
 		else
 		{
@@ -74,5 +72,4 @@ public class ConsignerSubmit extends HttpServlet {
 		out.println("</html>");
 		out.flush();
 	}
-
 }
