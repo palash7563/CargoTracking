@@ -77,4 +77,48 @@ public class ConsignerController {
 	}
 	}
 
+	public static boolean editRecord(Consigner C)
+	{try{
+		Connection cn=Dbhelper.openConnection();
+		String q="update  consigner set firmname='"+C.getFirmname()+"',registration_no='"+C.getRegistration_no()+"',ownername='"+C.getOwnername()+"',contactperson='"+C.getContactperson()+"',mobileno='"+C.getMobileno()+"',phoneno='"+C.getPhoneno()+"',email='"+C.getEmail()+"',address='"+C.getAddress()+"',country='"+C.getCountry()+"',state='"+C.getState()+"',city='"+C.getCity()+"',deals_in='"+C.getDeals_in()+"',website='"+C.getWebsite()+"' where id="+C.getId();
+		System.out.println(q);
+		boolean st=Dbhelper.executeupdate(cn, q);
+		return(st);
+
+	}
+	catch(Exception e)
+	{System.out.println("ConsignerController:editRecord:"+e);
+	return false;	
+	}
+	}
+
+	public static boolean deleteRecord(int id)
+	{try{
+		Connection cn=Dbhelper.openConnection();
+		String q="Delete from consigner where id="+id;
+				 
+		boolean st=Dbhelper.executeupdate(cn, q);
+		return(st);
+
+	}
+	catch(Exception e)
+	{System.out.println("ConsignerController:editRecord:"+e);
+	return false;	
+	}
+	}
+
+	public static boolean updatePicture(Consigner C)
+	{try{
+		Connection cn=Dbhelper.openConnection();
+		String q="update  consigner set firmlogo='"+C.getFirmlogo()+"' where id="+C.getId();
+		System.out.println(q);
+		boolean st=Dbhelper.executeupdate(cn, q);
+		return(st);
+
+	}
+	catch(Exception e)
+	{System.out.println("ConsignerController:updatePicture:"+e);
+	return false;	
+	}
+	}
 }
