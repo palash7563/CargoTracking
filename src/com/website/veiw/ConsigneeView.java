@@ -31,82 +31,84 @@ public class ConsigneeView extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 	   PrintWriter out=response.getWriter();
-			out.println("<script src='asset/jquery-2.2.1.min.js'></script>");
-	        out.println("<script src='asset/csc.js'></script>");
-	        out.println("<script src='asset/cnsCheck.js'></script>");
+			out.println("<script src='filesa/jquery-2.2.1.min.js'></script>");
+	        out.println("<script src='filesa/countrycitystate.js'></script>");
+	        out.println("<script src='filesa/passwordcheck.js'></script>");
 	        out.println("<html>");
 	        out.println("<html>");
 	        out.println("<a href=ConsigneeDisplayAll>Display All Consignee</a><br>");
 	        
 	        out.println("<form action=ConsigneeSubmit method=post enctype='multipart/form-data'>");
-	        out.println("<table width=70%>");
+	        out.println("<table width=100%>");
+	        out.println("<tr>");
 	        out.println("<caption><b><i>Consingee Registration</i></b></caption>");
+	        out.println("</tr>");
 	        out.println("<tr>");
-	        out.println("<td><b><i>Firm Name:</i></b></td><td><input type=text name=firmname required size=30></td>");
+	        out.println("<td>Firm Name:</td><td><input type=text name=firmname required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Registration No:</i></b></td><td><input type=text  required name=registrationno size=30></td>");
+	        out.println("<td>Registration No:</td><td><input type=text  required name=registrationno size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Owner Name:</i></b></td><td><input type=text name=ownername required size=30></td>");
+	        out.println("<td>Owner Name:</td><td><input type=text name=ownername required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Contact Person:</i></b></td><td><input type=text required name=contactperson size=30></td>");
+	        out.println("<td>Contact Person:</td><td><input type=text required name=contactperson size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Mobile No:</i></b></td><td><input type=text name=mobileno required size=30></td>");
+	        out.println("<td>Mobile No:</td><td><input type=text name=mobileno required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Phone No:</i></b></td><td><input type=text name=phoneno required size=30></td>");
+	        out.println("<td>Phone No:</td><td><input type=text name=phoneno required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Email Id:</i></b></td><td><input type=text name=email  required size=30></td>");
+	        out.println("<td>Email Id:</td><td><input type=email name=email  required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Address:</i></b></td><td><input type=text name=address required size=30></td>");
+	        out.println("<td>Address:</td><td><input type=text name=address required size=30></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Country:</i></b></td><td><select id=country name=country></select></td>");
+	        out.println("<td>Country :</td><td><select id=country name=country><option>-Select-</option></select></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>State:</i></b></td><td><select id=state name=state><option>-Select-</option></select></td>");
+	        out.println("<td>State :</td><td><select id=state name=state><option>-Select-</option></select></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>City:</i></b></td><td><select id=city name=city><option>-Select-</option></select></td>");
-	        out.println("</tr>");
-	        
-	        
-	        out.println("<tr>");
-	        out.println("<td><b><i>Deals In:</i></b></td><td><input type=text name=dealsin required size=30></td>");
+	        out.println("<td>City :</td><td><select id=city name=city><option>-Select-</option></select></td>");
 	        out.println("</tr>");
 	        
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Website:</i></b></td><td><input type=text name=website required size=30></td>");
+	        out.println("<td>Deals In :</td><td><input type=text name=dealsin required size=30></td>");
 	        out.println("</tr>");
 	        
-			
+	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Firm Logo:</i></b></td><td><input type=file required name=firmlogo></td>");
+	        out.println("<td>Website :</td><td><input type=text name=website required size=30></td>");
 	        out.println("</tr>");
 	        
 			
 	        out.println("<tr>");
-	        out.println("<td><b><i>Password:</i></b></td><td><input type=password required name=password size=30 id=password></td>");
+	        out.println("<td>Firm Logo :</td><td><input type=file required name=firmlogo></td>");
+	        out.println("</tr>");
+	        
+			
+	        out.println("<tr>");
+	        out.println("<td>Password :</td><td><input type=password required name=password size=30 id=password></td>");
 	        out.println("</tr>");
 	        
 	        out.println("<tr>");
-	        out.println("<td><b><i>Confirm Password:</i></b></td><td><input type=password required name=cpassword size=30 id=cpassword>&nbsp;&nbsp;&nbsp;<span id=msg></span></td>");
+	        out.println("<td>Confirm Password :</td><td><input type=password required name=cpassword size=30 id=cpassword>&nbsp;&nbsp;&nbsp;<span id=msg></span></td>");
 	        out.println("</tr>");
 	    
 		

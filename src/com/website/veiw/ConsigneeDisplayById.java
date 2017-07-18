@@ -38,9 +38,9 @@ public class ConsigneeDisplayById extends HttpServlet {
 		{out.println("Not Found");
  		}
 		else
-		{out.println("<script src='asset/jquery-2.2.1.min.js'></script>");
-        out.println("<script src='asset/csc.js'></script>");
-        out.println("<script src='asset/cnsCheck.js'></script>");
+		{out.println("<script src='filesa/jquery-2.2.1.min.js'></script>");
+        out.println("<script src='filesa/countrycitystate.js'></script>");
+        out.println("<script src='filesa/passwordcheck.js'></script>");
         out.println("<html>");
         
         out.println("<a href=ConsigneeDisplayAll>Display All Consignee</a><br>");
@@ -52,59 +52,59 @@ public class ConsigneeDisplayById extends HttpServlet {
         out.println("<caption><b><i>Consingee Registration</i></b></caption>");
         out.println("<input type=hidden value='"+C.getId()+"' name=cid>");
         out.println("<tr>");
-        out.println("<td><b><i>Firm Name:</i></b></td><td><input type=text name=firmname value='"+C.getFirmname()+"' size=30></td>");
+        out.println("<td>Firm Name:</td><td><input type=text name=firmname value='"+C.getFirmname()+"' size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Registration No:</i></b></td><td><input type=text   value='"+C.getRegistration_no()+"' name=registrationno size=30></td>");
+        out.println("<td>Registration No:</td><td><input type=text   value='"+C.getRegistration_no()+"' name=registrationno size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Owner Name:</i></b></td><td><input type=text name=ownername  value='"+C.getOwnername()+"' size=30></td>");
+        out.println("<td>Owner Name:</td><td><input type=text name=ownername  value='"+C.getOwnername()+"' size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Contact Person:</i></b></td><td><input type=text  value='"+C.getContactperson()+"' name=contactperson size=30></td>");
+        out.println("<td>Contact Person:</td><td><input type=text  value='"+C.getContactperson()+"' name=contactperson size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Mobile No:</i></b></td><td><input type=text name=mobileno  value='"+C.getMobileno()+"' size=30></td>");
+        out.println("<td>Mobile No:</td><td><input type=text name=mobileno  value='"+C.getMobileno()+"' size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Phone No:</i></b></td><td><input type=text name=phoneno  value='"+C.getPhoneno()+"' size=30></td>");
+        out.println("<td>Phone No:</td><td><input type=text name=phoneno  value='"+C.getPhoneno()+"' size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Email Id:</i></b></td><td><input type=text name=email   value='"+C.getEmail()+"'size=30></td>");
+        out.println("<td>Email Id:</td><td><input type=text name=email   value='"+C.getEmail()+"'size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
-        out.println("<td><b><i>Address:</i></b></td><td><input type=text name=address  value='"+C.getAddress()+"' size=30></td>");
+        out.println("<td>Address:</td><td><input type=text name=address  value='"+C.getAddress()+"' size=30></td>");
         out.println("</tr>");
         
         out.println("<tr>");
         String cnt[]=C.getCountry().split(",");
-        out.println("<td><b><i>Country:</i></b></td><td><input type=hidden value='"+cnt[0]+"' name=icountry><b>"+cnt[1]+"<b><br><select id=country name=country></select></td>");
+        out.println("<td>Country:</td><td><input type=hidden value='"+cnt[0]+"' name=icountry><b>"+cnt[1]+"<b><br><select id=country name=country></select></td>");
         out.println("</tr>");
         
         out.println("<tr>");
         String st[]=C.getState().split(",");
-        out.println("<td><b><i>State:</i></b></td><td><input type=hidden value='"+st[0]+"' name=istate><b>"+st[1]+"<b><br><select id=state name=state><option>-Select-</option></select></td>");
+        out.println("<td>State:</td><td><input type=hidden value='"+st[0]+"' name=istate><b>"+st[1]+"<b><br><select id=state name=state><option>-Select-</option></select></td>");
         out.println("</tr>");
         String ct[]=C.getCity().split(",");
         out.println("<tr>");
-        out.println("<td><b><i>City:</i></b></td><td><input type=hidden value='"+ct[0]+"' name=icity><b>"+ct[1]+"<b><br><select id=city name=city><option>-Select-</option></select></td>");
+        out.println("<td>City:</td><td><input type=hidden value='"+ct[0]+"' name=icity><b>"+ct[1]+"<b><br><select id=city name=city><option>-Select-</option></select></td>");
         out.println("</tr>");
         
         
         out.println("<tr>");
-        out.println("<td><b><i>Deals In:</i></b></td><td><input type=text name=dealsin  value='"+C.getDeals_in()+"' size=30></td>");
+        out.println("<td>Deals In:</td><td><input type=text name=dealsin  value='"+C.getDeals_in()+"' size=30></td>");
         out.println("</tr>");
         
         
         out.println("<tr>");
-        out.println("<td><b><i>Website:</i></b></td><td><input type=text name=website  value='"+C.getWebsite()+"' size=30></td>");
+        out.println("<td>Website:</td><td><input type=text name=website  value='"+C.getWebsite()+"' size=30></td>");
         out.println("</tr>");
         
 		

@@ -43,6 +43,8 @@ public class ConsigneeSubmit extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter out=response.getWriter();
 		Consignee C=new Consignee();
+		
+		
 		C.setFirmname(request.getParameter("firmname"));
 	    C.setRegistration_no(request.getParameter("registrationno"));
 	    C.setOwnername(request.getParameter("ownername"));
@@ -56,8 +58,10 @@ public class ConsigneeSubmit extends HttpServlet {
         C.setCity(request.getParameter("city"));
         C.setDeals_in(request.getParameter("dealsin"));
         C.setWebsite(request.getParameter("website"));
+        
+        //firmlogo
         Part part=request.getPart("firmlogo");
-        String path="F:/Eclipse Mars/eclipse/CargoTracking/WebContent/images";
+        String path="C:/Users/Palash/Desktop/CargoTracking/WebContent/images";
         FileUpload F=new FileUpload(part,path);
         C.setFirmlogo(F.filename);
 

@@ -43,6 +43,9 @@ public class EmployeeSubmit extends HttpServlet {
 		// TODO Auto-generated method stub
 PrintWriter out=response.getWriter();
 Employee E=new Employee();
+
+//Employee
+
 E.setEmployeename(request.getParameter("employeename"));
 E.setDob(request.getParameter("dob"));
 E.setAddress(request.getParameter("address"));
@@ -55,26 +58,26 @@ E.setQualification(request.getParameter("qualification"));
 E.setDesignation(request.getParameter("designation"));
 
 Part part=request.getPart("photograph");
-String path="F:/Eclipse Mars/eclipse/CargoTracking/WebContent/images";
+String path="C:/Users/Palash/Desktop/CargoTracking/WebContent/images";
 FileUpload F=new FileUpload(part,path);
 E.setPhotograph(F.filename);
-
-
 E.setPassword(request.getParameter("password"));
+
+
 boolean st=EmployeeController.addNewRecord(E);
+
+
 out.println("<html>");
 if(st)
-{out.println("<b><i>Record Submitted</i></b>");
- }
+{
+	out.println("Record Submitted");
+}
 else
-{out.println("<b><i>Fail to Submit Record</i></b>");
-	
+{
+	out.println("Fail to Submit Record");
 }
 out.println("</html>");
-out.flush();
-
-
-	
+out.flush();	
 	}
 
 }

@@ -42,27 +42,25 @@ public class EmployeeDisplayAll extends HttpServlet {
 		if(rs.next())
 		{out.print("<table border=1>");
 		out.print("<caption><i><b>List of Employee</b></i></caption>");
-		  out.println("<tr>");
-		  //  employeeid,employeename,dob,address,(select countryname from country C where C.countryid=CC.country),(select statename from state S where S.stateid=CC.state), (select cityname from city CI where CI.cityid=CC.city) ,Phone,mobile,qualification,designation,photograph from Employee CC";
-		    
+		  out.println("<tr>");  
 		  out.println("<th>Sno</th><th>Id/EmployeeName</th><th>DOB</th><th>Address</th><th>Qualifications</th><th>Designation</th><th>Photograph</th><th>Update</th></tr>");
 	 		int sn=1;
 			do{
 				out.println("<tr><td>"+sn+"</td><td>"+rs.getString(1)+"/<br>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"<br>"+rs.getString(7)+","+rs.getString(6)+"<br>"+rs.getString(5)+"<br>Mob:"+rs.getString(8)+" Ph:"+rs.getString(9)+"</td><td>"+rs.getString(10)+"</td><td>"+rs.getString(11)+"</td><td><img src=images/"+rs.getString(12)+" width=45 height=45><br>"+"</a></td><td><a href=EmployeeDisplayById?cid="+rs.getString(1)+">Edit/Delete</a></td></tr>");
-				
-				
 			sn++;
-		}while(rs.next());
+		}
+			while(rs.next());
 			out.println("</table></html>");
 		}
 		else
 		{
-		out.println("Record Not Found");	
+
+			out.println("Record Not Found");	
 		}
 			
-		}catch(Exception e){
-			out.println(e);
-			
+		}catch(Exception e)
+		{
+			out.println(e);	
 		}
 
 	
