@@ -48,6 +48,7 @@ public class ConsigneeDisplayAll extends HttpServlet {
 			out.println("<tr>");
 			out.println("<th>Sno</th><th>Id/Firm Name</th><th>Owner Name/<br>Registration</th><th>Contact Person</th><th>Deals In</th><th>Website</th><th>Update</th></tr>");
 	 		int sn=1;
+	 		
 			do
 				{
 					out.println("<tr><td>"+sn+"</td><td>"+rs.getString(1)+"/<br>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"/<br>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"<br>"+rs.getString(9)+"<br>"+rs.getString(12)+","+rs.getString(11)+"<br>"+rs.getString(10)+"<br>"+rs.getString(8)+"<br>Mob:"+rs.getString(6)+" Ph:"+rs.getString(7)+"</td><td>"+rs.getString(13)+"</td><td><img src=images/"+rs.getString(15)+" width=45 height=45><br><a href="+rs.getString(14)+">"+rs.getString(14)+"</a></td><td><a href=ConsigneeDisplayById?cid="+rs.getString(1)+">Edit/Delete</a></td></tr>");
@@ -65,7 +66,5 @@ public class ConsigneeDisplayAll extends HttpServlet {
 			out.println(e);
 			
 		}
-	
 	}
-
 }

@@ -51,7 +51,7 @@ public class ConsignerDisplayAll extends HttpServlet {
 				
 				sn++;
 			}while(rs.next());
-				out.println("<a href=mainpage>Main Page</a>");
+				//out.println("<a href=mainpage>Main Page</a>");
 			out.println("</table></html>");
 					
 			}

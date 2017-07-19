@@ -83,7 +83,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Mobile No : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=no required size=10 name=mobileno>");
+		out.println("<input type=text required name=mobileno>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -92,7 +92,7 @@ public class ConsignerView extends HttpServlet {
 		out.println("Phone No : ");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=no size=10 required name=phoneno>");
+		out.println("<input type=text size=10 required name=phoneno>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -198,7 +198,7 @@ public class ConsignerView extends HttpServlet {
 		
 		out.println("</table>");
 		out.println("</form>");
-		out.println("<a href=mainpage>Main Page</a>");
+		//out.println("<a href=mainpage>Main Page</a>");
 		out.println("</body>");
 		out.println("</html>");
 	}
