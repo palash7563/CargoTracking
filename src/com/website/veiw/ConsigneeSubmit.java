@@ -20,10 +20,6 @@ import com.website.model.Consignee;
  * Servlet implementation class ConsigneeSubmit
  */
 @WebServlet("/ConsigneeSubmit")
-@MultipartConfig(fileSizeThreshold=1024*1024*2,//2MB
-maxFileSize=1024*1024*10,//10MB
-maxRequestSize=1024*1024*50)
-
 
 public class ConsigneeSubmit extends HttpServlet {
 	private static final long serialVersionUID = 1L;

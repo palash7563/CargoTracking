@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Despatch
+ * Servlet implementation class DispatchVeiw
  */
-@WebServlet("/Despatch")
-public class Despatch extends HttpServlet {
+@WebServlet("/DispatchVeiw")
+public class DispatchVeiw extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Despatch() {
+    public DispatchVeiw() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +28,19 @@ public class Despatch extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	
 		PrintWriter out=response.getWriter();
+		out.println("<script type=text/javascript src='filesa/jquery-2.2.1.min.js'></script>");
+		out.println("<script type=text/javascript src='filesa/route.js'></script>");
+		out.println("<script type=text/javascript src='filesa/dispatchconsignerid.js'></script>");
+		out.println("<script type=text/javascript src='filesa/dispatchconsigneeid.js'></script>");
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Disptach</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<form action='SetDispatch' method='post'>");
+		out.println("<form action='DispatchSubmit' method='post'>");
 		out.println("<table>");
 		
 		out.println("<tr>");
@@ -47,7 +52,7 @@ public class Despatch extends HttpServlet {
 		out.println("Employee Id");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=employeeid>");
+		out.println("<input type=text name=employeeid required>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -56,7 +61,7 @@ public class Despatch extends HttpServlet {
 		out.println("Dispatch Date:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=date name=dispatchdate>");
+		out.println("<input type=date name=dispatchdate required>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -65,7 +70,7 @@ public class Despatch extends HttpServlet {
 		out.println("Disptach Time:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=time name=dispatchtime>");
+		out.println("<input type=time name=dispatchtime required>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -74,7 +79,7 @@ public class Despatch extends HttpServlet {
 		out.println("Consigner Id:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=consignerid>");
+		out.println("<select id=consignerid required name=consignerid><option>-Select-</option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -83,7 +88,7 @@ public class Despatch extends HttpServlet {
 		out.println("Consignee Id:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=consigneeid>");
+		out.println("<select id='consigneeid' required name='consigneeid'><option>-Select-<option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -92,7 +97,7 @@ public class Despatch extends HttpServlet {
 		out.println("Product Despcription:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=productdescription>");
+		out.println("<input type=text required name=productdescription>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -101,7 +106,7 @@ public class Despatch extends HttpServlet {
 		out.println("Product Type:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=producttype>");
+		out.println("<input type=text required name=producttype>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -110,7 +115,7 @@ public class Despatch extends HttpServlet {
 		out.println("Total Box:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=totalbox>");
+		out.println("<input type=text required name=totalbox>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -119,7 +124,7 @@ public class Despatch extends HttpServlet {
 		out.println("Quantity:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=quantity>");
+		out.println("<input type=text required name=quantity>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -128,7 +133,7 @@ public class Despatch extends HttpServlet {
 		out.println("Amount:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=amount>");
+		out.println("<input type=text required name=amount>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -137,7 +142,7 @@ public class Despatch extends HttpServlet {
 		out.println("Charge Of Dispatch:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=chargeofdispatch>");
+		out.println("<input type=text required name=chargeofdispatch>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -146,7 +151,7 @@ public class Despatch extends HttpServlet {
 		out.println("Dispatch From:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=dispatchfrom>");
+		out.println("<input type=text required name=dispatchfrom>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -155,16 +160,16 @@ public class Despatch extends HttpServlet {
 		out.println("Dispatch To:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=dispatchto>");
+		out.println("<input type=text required name=dispatchto>");
 		out.println("</td>");
 		out.println("</tr>");
 		
 		out.println("<tr>");
 		out.println("<td>");
-		out.println("By:");
+		out.println("Route:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=by>");
+		out.println("<select id='route' required name='route'><option>-Select-</option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -173,7 +178,7 @@ public class Despatch extends HttpServlet {
 		out.println("Vechile No:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=vehicleno>");
+		out.println("<input type=text required name=vehicleno>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -182,7 +187,7 @@ public class Despatch extends HttpServlet {
 		out.println("Approx Days:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text name=approxdays>");
+		out.println("<input type=text required name=approxdays>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -200,6 +205,7 @@ public class Despatch extends HttpServlet {
 		out.println("</body>");
 		out.println("</html>");
 		out.flush();
+
 	}
 
 }

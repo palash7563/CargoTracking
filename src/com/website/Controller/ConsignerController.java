@@ -72,13 +72,16 @@ public class ConsignerController {
 		 
 	  }
 	catch(Exception e)
-	{System.out.println("ConsignerController:displayAll:"+e);
-	return null;	
+	{
+		System.out.println("ConsignerController displayAll:"+e);
+		return null;	
 	}
 	}
 
 	public static boolean editRecord(Consigner C)
-	{try{
+	{
+		try
+		{
 		Connection cn=Dbhelper.openConnection();
 		String q="update  consigner set firmname='"+C.getFirmname()+"',registration_no='"+C.getRegistration_no()+"',ownername='"+C.getOwnername()+"',contactperson='"+C.getContactperson()+"',mobileno='"+C.getMobileno()+"',phoneno='"+C.getPhoneno()+"',email='"+C.getEmail()+"',address='"+C.getAddress()+"',country='"+C.getCountry()+"',state='"+C.getState()+"',city='"+C.getCity()+"',deals_in='"+C.getDeals_in()+"',website='"+C.getWebsite()+"' where id="+C.getId();
 		System.out.println(q);
@@ -87,8 +90,9 @@ public class ConsignerController {
 
 	}
 	catch(Exception e)
-	{System.out.println("ConsignerController:editRecord:"+e);
-	return false;	
+	{
+		System.out.println("ConsignerController editRecord:"+e);
+		return false;	
 	}
 	}
 
@@ -102,13 +106,16 @@ public class ConsignerController {
 
 	}
 	catch(Exception e)
-	{System.out.println("ConsignerController:editRecord:"+e);
-	return false;	
+	{
+		System.out.println("ConsignerController editRecord:"+e);
+		return false;	
 	}
-	}
+}
 
 	public static boolean updatePicture(Consigner C)
-	{try{
+	{
+		try
+		{
 		Connection cn=Dbhelper.openConnection();
 		String q="update  consigner set firmlogo='"+C.getFirmlogo()+"' where id="+C.getId();
 		System.out.println(q);
@@ -117,8 +124,24 @@ public class ConsignerController {
 
 	}
 	catch(Exception e)
-	{System.out.println("ConsignerController:updatePicture:"+e);
-	return false;	
+	{
+		System.out.println("ConsignerController updatePicture:"+e);
+		return false;	
 	}
+	}
+	
+	public static ResultSet dispatchconsignerid()
+	{
+		try
+		{
+			Connection cn=Dbhelper.openConnection();
+			ResultSet rs=Dbhelper.executequery(cn, "select id from consigner");
+			return rs;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Consigner Controller dispatchconsignerid "+e);
+			return null;
+		}
 	}
 }

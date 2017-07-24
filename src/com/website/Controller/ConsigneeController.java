@@ -144,4 +144,19 @@ public static Consignee checkpassword(int aid,String password)
 		return null;
 	}
 }
+
+	public static ResultSet dispatchconsigneeid()
+	{
+		try
+		{
+			Connection cn=Dbhelper.openConnection();
+			ResultSet rs=Dbhelper.executequery(cn, "select id from consignee");
+			return rs;
+		}
+		catch(Exception e)
+		{
+			System.out.println("Consignee Controller dispatchconsigneeid "+e);
+			return null;
+		}
+	}
 }
