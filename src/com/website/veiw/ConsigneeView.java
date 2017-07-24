@@ -39,9 +39,9 @@ public class ConsigneeView extends HttpServlet {
 	        out.println("<a href=ConsigneeDisplayAll>Display All Consignee</a><br>");
 	        
 	        out.println("<form action=ConsigneeSubmit method=post enctype='multipart/form-data'>");
-	        out.println("<table width=100%>");
+	        out.println("<table>");
 	        out.println("<tr>");
-	        out.println("<caption><b><i>Consingee Registration</i></b></caption>");
+	        out.println("<caption>Consingee Registration</caption>");
 	        out.println("</tr>");
 	        out.println("<tr>");
 	        out.println("<td>Firm Name:</td><td><input type=text name=firmname required size=30></td>");

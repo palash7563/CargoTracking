@@ -104,19 +104,44 @@ public class ConsigneeController {
  
 
   public static boolean deleteRecord(int id)
-  {try{
+  {try
+  {
   	Connection cn=Dbhelper.openConnection();
-  	String q="Delete from consignee where id="+id;
-  			 
+  	String q="Delete from consignee where id="+id;			 
   	boolean st=Dbhelper.executeupdate(cn, q);
   	return(st);
-
   }
   catch(Exception e)
-  {System.out.println("ConsigneeController:deleteRecord:"+e);
-  return false;	
+  {
+	  System.out.println("ConsigneeController deleteRecord "+e);
+	  return false;	
   }
+  
   } 
   
-
+public static Consignee checkpassword(int aid,String password)
+{
+	try
+	{
+		Connection cn=Dbhelper.openConnection();
+		String q="select * from consignee where id='"+aid+"'and password='"+password+"'";
+		ResultSet rs=Dbhelper.executequery(cn, q);
+		if(rs.next())
+		{
+			Consignee C=new Consignee();
+			C.setId(Integer.parseInt(rs.getString(1)));
+			C.setPassword(rs.getString(16));
+			return C;
+		}
+		else
+		{
+			return null;
+		}
+	}
+	catch(Exception e)
+	{
+		System.out.println("Consignee Controller checkpassword "+e);
+		return null;
+	}
+}
 }
