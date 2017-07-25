@@ -61,8 +61,5 @@ public class AdminHome extends HttpServlet {
 		out.println("<iframe name=mw width=700 height=800 frameborder=0></iframe>");
 		out.println("</td>");
 		out.println("</tr></table></html>");		
-
-		
 	}
-
 }

@@ -38,4 +38,18 @@ public class DispatchController {
 		}
 	}
 	
+	public static ResultSet getallproducttype()
+	{
+		try
+		{
+			Connection cn=Dbhelper.openConnection();
+			ResultSet rs=Dbhelper.executequery(cn, "select * from producttype");
+			return rs;
+		}
+		catch(Exception E)
+		{
+			System.out.println("Dispatch Controller getallproducttype "+E);
+			return null;
+		}
+	}
 }

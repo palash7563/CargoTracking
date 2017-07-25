@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.website.model.Consignee;
 import com.website.model.Consigner;
 
 public class ConsignerController {
@@ -143,5 +144,34 @@ public class ConsignerController {
 			System.out.println("Consigner Controller dispatchconsignerid "+e);
 			return null;
 		}
+
 	}
+	
+public static Consigner checkpassword(int aid,String password)
+	{
+		try
+		{
+			Connection cn=Dbhelper.openConnection();
+			String q="select * from consigner where id='"+aid+"'and password='"+password+"'";
+			ResultSet rs=Dbhelper.executequery(cn, q);
+			if(rs.next())
+			{
+				Consigner C=new Consigner();
+				C.setId(Integer.parseInt(rs.getString(1)));
+				C.setPassword(rs.getString(16));
+				return C;
+			}
+			else
+			{
+				return null;
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println("Consigner Controller checkpassword "+e);
+			return null;
+		}
+	}
+	
 }
+

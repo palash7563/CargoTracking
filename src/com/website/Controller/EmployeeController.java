@@ -2,11 +2,9 @@ package com.website.Controller;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
-
-
 import com.website.model.Employee;
 
-public interface EmployeeController {
+public class EmployeeController {
 	   public static boolean addNewRecord(Employee E){
     	   try{
     		   Connection cn=Dbhelper.openConnection();
@@ -23,25 +21,31 @@ public interface EmployeeController {
 
 
        public static ResultSet displayAll()
-       {try{
+       {
+    	   try
+    	   {
        	Connection cn=Dbhelper.openConnection();
        	String q="select employeeid,employeename,dob,address,(select countryname from country C where C.countryid=CC.country),(select statename from state S where S.stateid=CC.state), (select cityname from city CI where CI.cityid=CC.city) ,Phone,mobile,qualification,designation,photograph from Employee CC";
        	ResultSet rs=Dbhelper.executequery(cn, q);
        	return(rs);
          }
        catch(Exception e)
-       {System.out.println("EmployeeController:displayAll:"+e);
-       return null;	
+       {
+    	   System.out.println("EmployeeController:displayAll:"+e);
+    	   return null;	
        }
        }	
 
      public static Employee displayById(int cid)
-     {try{
+     {
+    	 try
+    	 {
      	Connection cn=Dbhelper.openConnection();
      	String q="select employeeid,employeename,dob,address,country,(select countryname from country C where C.countryid=CC.country),state,(select statename from state S where S.stateid=CC.state),city, (select cityname from city CI where CI.cityid=CC.city) ,phone,mobile,qualification,designation,photograph  from Employee CC where CC.employeeid="+cid;
      	ResultSet rs=Dbhelper.executequery(cn, q);
      	if(rs.next())
-     	{ Employee E=new Employee();
+     	{
+     	  Employee E=new Employee();
      	  E.setEmployeeid(Integer.parseInt(rs.getString(1)));
      	  E.setEmployeename(rs.getString(2));
      	  E.setDob(rs.getString(3));
@@ -59,61 +63,88 @@ public interface EmployeeController {
      	else
      	{
      	return(null);	
-     	}
-     	 
+     	} 
        }
      catch(Exception e)
-     {System.out.println("EmployeeController:displayById:"+e);
-     return null;	
+     {
+    	 System.out.println("EmployeeController:displayById:"+e);
+    	 return null;	
      }
      }	
  
      public static boolean editRecord(Employee E)
-     {try{
-    //employeeid, employeename, dob,address, country, state, city, Phone, mobile, qualification, designation, photograph, password	 
+     {try
+     {
      	Connection cn=Dbhelper.openConnection();
      	String q="update  Employee set employeename='"+E.getEmployeename()+"',dob='"+E.getDob()+"',address='"+E.getAddress()+"',country='"+E.getCountry()+"',state='"+E.getState()+"',city='"+E.getCity()+"',phone='"+E.getPhone()+"',mobile='"+E.getMobile()+"',qualification='"+E.getQualification()+"',designation='"+E.getDesignation()+"' where employeeid="+E.getEmployeeid();
      	boolean st=Dbhelper.executeupdate(cn, q);
      	return(st);
-
      }
      catch(Exception e)
      {System.out.println("EmployeeController:editRecord:"+e);
      return false;	
      }
      }
-
-     
-     
-     
+    
      public static boolean updatePicture(Employee E)
-     {try{
+     {
+    	 try
+    {
      	Connection cn=Dbhelper.openConnection();
      	String q="update  employee set photograph='"+E.getPhotograph()+"' where employeeid="+E.getEmployeeid();
      	boolean st=Dbhelper.executeupdate(cn, q);
      	return(st);
-
      }
      catch(Exception e)
-     {System.out.println("EmployeeController:updatePicture:"+e);
-     return false;	
+     {
+    	 System.out.println("EmployeeController:updatePicture:"+e);
+    	 return false;	
      }
-     }
+ }
 
      
      public static boolean deleteRecord(int id)
-     {try{
+     {
+    	 try
+     {
      	Connection cn=Dbhelper.openConnection();
-     	String q="Delete from employee where employeeid="+id;
-     			 
+     	String q="Delete from employee where employeeid="+id;			 
      	boolean st=Dbhelper.executeupdate(cn, q);
      	return(st);
 
      }
      catch(Exception e)
-     {System.out.println("EmployeeController:deleteRecord:"+e);
-     return false;	
+     {
+    	 System.out.println("Employee Controller deleteRecord:"+e);
+    	 return false;	
      }
      } 
+
+     
+     public static Employee checkpassword(int aid,String password)
+ 	{
+ 		try
+ 		{
+ 			Connection cn=Dbhelper.openConnection();
+ 			String q="select * from employee where id='"+aid+"'and password='"+password+"'";
+ 			ResultSet rs=Dbhelper.executequery(cn, q);
+ 			if(rs.next())
+ 			{
+ 				Employee C=new Employee();
+ 				C.setEmployeeid(rs.getShort(1));
+ 				C.setPassword(rs.getString(16));
+ 				return C;
+ 			}
+ 			else
+ 			{
+ 				return null;
+ 			}
+ 		}
+ 		catch(Exception e)
+ 		{
+ 			System.out.println("Employee Controller checkpassword "+e);
+ 			return null;
+ 		}
+ 	}
 
 }

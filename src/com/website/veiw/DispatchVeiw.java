@@ -34,6 +34,8 @@ public class DispatchVeiw extends HttpServlet {
 		out.println("<script type=text/javascript src='filesa/route.js'></script>");
 		out.println("<script type=text/javascript src='filesa/dispatchconsignerid.js'></script>");
 		out.println("<script type=text/javascript src='filesa/dispatchconsigneeid.js'></script>");
+		out.println("<script type=text/javascript src='filesa/producttype.js'></script>");
+		
 		
 		out.println("<html>");
 		out.println("<head>");
@@ -106,7 +108,7 @@ public class DispatchVeiw extends HttpServlet {
 		out.println("Product Type:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<input type=text required name=producttype>");
+		out.println("<select name='producttype' id='producttype'><option>-Select-<option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		

@@ -42,7 +42,6 @@ public class CheckAdminLogin extends HttpServlet {
 			HttpSession ses=request.getSession();
 			ses.putValue("SADMIN", a);
 			ses.putValue("LTIME", new java.util.Date());
-			
 			response.sendRedirect("AdminHome");
 		}
 		else
