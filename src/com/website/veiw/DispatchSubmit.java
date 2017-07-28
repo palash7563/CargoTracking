@@ -17,9 +17,7 @@ import com.website.model.Dispatch;
  * Servlet implementation class DispatchSubmit
  */
 @WebServlet("/DispatchSubmit")
-@MultipartConfig(fileSizeThreshold=1024*1024*2,//2MB
-maxFileSize=1024*1024*10,//10MB
-maxRequestSize=1024*1024*50)
+
 
 public class DispatchSubmit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -62,6 +60,8 @@ public class DispatchSubmit extends HttpServlet {
 		if(st==true)
 		{
 			out.println("Record Submitted");
+			
+			
 		}
 		if(st==false)
 		{
