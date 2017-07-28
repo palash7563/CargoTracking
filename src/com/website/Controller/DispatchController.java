@@ -52,4 +52,29 @@ public class DispatchController {
 			return null;
 		}
 	}
+	
+	public static int getTrackingid(){
+	  	   try{
+	  		   
+	  		   		Connection cn=Dbhelper.openConnection();
+	  		                                                                                
+	  		   		String q="select max(transactionid) from dispatch";
+	  		   		ResultSet rs=Dbhelper.executequery(cn, q);
+	  		   		if(rs.next())
+	  		   		{
+	  		   			int tid=Integer.parseInt(rs.getString(1));
+	  		   			return(tid);
+	  		   		}
+	  		   		else
+	  		   		{
+	  		   			return(-1);
+	  		   		}
+	         	}
+	  	   		catch(Exception e)
+	  	   		{
+	  	   				System.out.println("DispatchController:addNewRecord:"+e);
+	  	   				return -1;	
+	  	   		}
+	     }
+
 }

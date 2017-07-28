@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.website.Controller.DispatchController;
+import com.website.Controller.TrackingController;
 import com.website.model.Dispatch;
+import com.website.model.Tracking;
 
 /**
  * Servlet implementation class DispatchSubmit
@@ -60,6 +62,25 @@ public class DispatchSubmit extends HttpServlet {
 		if(st==true)
 		{
 			out.println("Record Submitted");
+			int tid=DispatchController.getTrackingid();
+			
+			//add record to tracking
+			Tracking t=new Tracking();
+			t.setTrackingid(tid);
+			t.setEmployeeid(D.getEmployeeid());
+			t.setTdate(D.getDispatchdate());
+			t.setTtime(D.getDispatchtime());
+			StringBuffer des=new StringBuffer();
+			des.append("Dispatch From: "+D.getDispatchfrom()+"\r");
+			des.append("Dispatch To:"+D.getDispatchto()+"\r");
+			des.append("Disptach By :"+D.getRoute()+"\r");
+			t.setDescription(des.toString());
+			t.setLat("0");
+			t.setLng("0");
+			TrackingController.addNewRecord(t);
+			
+			//sms to consigner and consignee
+			SmsServlet sms=new SmsServlet();
 			
 			
 		}
