@@ -90,7 +90,7 @@ public class DispatchVeiw extends HttpServlet {
 		out.println("Consignee Id:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<select id='consigneeid' required name='consigneeid'><option>-Select-<option></select>");
+		out.println("<select id='consigneeid' required name='consigneeid'><option>-Select-</option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		
@@ -108,7 +108,7 @@ public class DispatchVeiw extends HttpServlet {
 		out.println("Product Type:");
 		out.println("</td>");
 		out.println("<td>");
-		out.println("<select name='producttype' id='producttype'><option>-Select-<option></select>");
+		out.println("<select name='producttype' id='producttype'><option>-Select-</option></select>");
 		out.println("</td>");
 		out.println("</tr>");
 		

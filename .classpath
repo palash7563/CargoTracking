@@ -12,5 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Palash/Desktop/apache-tomcat-7.0.79/apache-tomcat-7.0.79/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Palash/Desktop/CargoTracking/RXTXcomm.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

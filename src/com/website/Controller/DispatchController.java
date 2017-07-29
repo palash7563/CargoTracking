@@ -13,7 +13,7 @@ public class DispatchController {
 		{
 			
 			Connection cn=Dbhelper.openConnection();
-			String q="insert into dispatch(employeeid,dispatchdate,dispatchtime,consignerid,consigneeid,productdescription,producttype,totalbox,quantitybox,amount,chargeofdispatch,dispatchfrom,dispatchto,route,vehicleno,approxdays)values('"+D.getEmployeeid()+"','"+D.getDispatchdate()+"','"+D.getDispatchtime()+"','"+D.getConsignerid()+"','"+D.getConsigneeid()+"','"+D.getProductdescription()+"','"+D.getProducttype()+"','"+D.getTotalbox()+"','"+D.getQuantitybox()+"','"+D.getAmount()+"','"+D.getChargeofdispatch()+"','"+D.getDispatchfrom()+"','"+D.getDispatchto()+"','"+D.getRoute()+"','"+D.getVehicleno()+"','"+D.getApproxdays()+"')";
+			String q="insert into dispatch(employeeid,dispatchdate,dispatchtime,consignerid,consigneeid,productdescription,producttype,totalbox,quantitybox,amount,chargeofdispatch,dispatchfrom,dispatchto,route,vehicleno,approxdays) values('"+D.getEmployeeid()+"','"+D.getDispatchdate()+"','"+D.getDispatchtime()+"','"+D.getConsignerid()+"','"+D.getConsigneeid()+"','"+D.getProductdescription()+"','"+D.getProducttype()+"','"+D.getTotalbox()+"','"+D.getQuantitybox()+"','"+D.getAmount()+"','"+D.getChargeofdispatch()+"','"+D.getDispatchfrom()+"','"+D.getDispatchto()+"','"+D.getRoute()+"','"+D.getVehicleno()+"','"+D.getApproxdays()+"')";
 			boolean st=Dbhelper.executeupdate(cn,q);
 			return st;
 		}

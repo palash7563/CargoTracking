@@ -10,8 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.website.Controller.ConsigneeController;
+import com.website.Controller.ConsignerController;
 import com.website.Controller.DispatchController;
 import com.website.Controller.TrackingController;
+import com.website.model.Consignee;
+import com.website.model.Consigner;
 import com.website.model.Dispatch;
 import com.website.model.Tracking;
 
@@ -80,9 +84,16 @@ public class DispatchSubmit extends HttpServlet {
 			TrackingController.addNewRecord(t);
 			
 			//sms to consigner and consignee
-			SmsServlet sms=new SmsServlet();
-			
-			
+			 SmsServlet sms=new SmsServlet();
+	         Consigner Cr=new Consigner();
+	         
+	         Cr=ConsignerController.displayById(D.getConsignerid());
+	          System.out.print(Cr.getMobileno());
+	         sms.SendSms("COM5",Cr.getMobileno() ,"Your Product Has Been Dispatched..Ur Tracking is "+tid);
+	       Consignee Ce=new  Consignee();
+	       Ce=ConsigneeController.displayById(D.getConsigneeid());
+	       System.out.print(Ce.getMobileno());
+	       sms.SendSms("COM5",Ce.getMobileno() ,"Your Product Has Been Dispatched..Ur Tracking is "+tid);
 		}
 		if(st==false)
 		{

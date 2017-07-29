@@ -11,7 +11,7 @@ public class TrackingController {
 	  	   try
 	  	   {
 	  		   Connection cn=Dbhelper.openConnection();                                                                                                                                        
-	           String q="Insert into tracking (trackingid,employeeid,tdate,ttime,description,lat,lng) values ("+T.getTrackingid()+","+T.getEmployeeid()+",'"+T.getTdate()+"','"+T.getTtime()+"','"+T.getDescription()+"','"+T.getLat()+"','"+T.getLng()+"')";
+	           String q="insert into tracking (trackingid,employeeid,tdate,ttime,description,lat,lng) values ('"+T.getTrackingid()+"','"+T.getEmployeeid()+"','"+T.getTdate()+"','"+T.getTtime()+"','"+T.getDescription()+"','"+T.getLat()+"','"+T.getLng()+"')";
 	           boolean st=Dbhelper.executeupdate(cn, q);
 	           return (st);
 	  	   }
