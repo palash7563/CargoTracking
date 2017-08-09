@@ -36,7 +36,6 @@ public class DispatchVeiw extends HttpServlet {
 		out.println("<script type=text/javascript src='filesa/dispatchconsigneeid.js'></script>");
 		out.println("<script type=text/javascript src='filesa/producttype.js'></script>");
 		
-		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<title>Disptach</title>");
