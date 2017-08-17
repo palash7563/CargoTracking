@@ -28,8 +28,7 @@ public class TrackingController {
 		try
 		{
 			Connection cn=Dbhelper.openConnection();
-			String q="select T.*,d.*,C.ownername CNO ,C.firmname CNF,CE.ownername CEO,CE.firmname CEF,CE.contactperson CEC,C.contactperson CNC from tracking T,dispatch D,consignee CE,consigner C where T.trackingtranscationid='"+tid+"' and D.transactionid='"+tid+"' and D.consignerid=C.id and D.consigneeid=CE.id"; 
-			//String q="select * from tracking where transactionid="+tid;
+			String q="select T.*,d.*,C.ownername CNO ,C.firmname CNF,CE.ownername CEO,CE.firmname CEF,CE.contactperson CEC,C.contactperson CNC from tracking T,dispatch D,consignee CE,consigner C where T.trackingid='"+tid+"' and D.transactionid='"+tid+"' and D.consignerid=C.id and D.consigneeid=CE.id"; 
 			ResultSet rs=Dbhelper.executequery(cn, q);
 			return rs;
 		}

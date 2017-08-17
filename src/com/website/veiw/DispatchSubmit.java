@@ -84,6 +84,7 @@ public class DispatchSubmit extends HttpServlet {
 			TrackingController.addNewRecord(t);
 			
 			//sms to consigner and consignee
+			
 			 SmsServlet sms=new SmsServlet();
 	         Consigner Cr=new Consigner();
 	         
@@ -92,7 +93,6 @@ public class DispatchSubmit extends HttpServlet {
 	         sms.SendSms("COM5",Cr.getMobileno() ,"Your Product Has Been Dispatched..Ur Tracking is "+tid);
 	       Consignee Ce=new  Consignee();
 	       Ce=ConsigneeController.displayById(D.getConsigneeid());
-	       System.out.print(Ce.getMobileno());
 	       sms.SendSms("COM5",Ce.getMobileno() ,"Your Product Has Been Dispatched..Ur Tracking is "+tid);
 		}
 		if(st==false)

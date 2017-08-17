@@ -29,6 +29,7 @@ public class CheckEmployeeLogin extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("deprecation")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String aid=request.getParameter("aid");
 		String password=request.getParameter("password");

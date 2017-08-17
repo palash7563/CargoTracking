@@ -46,10 +46,10 @@ public class EmployeeHome extends HttpServlet {
 	     response.sendRedirect("EmployeeLogin");		
 		}
 	   out.println("<table>");
-	   out.println("<tr><td valign=top><a href=DispatchView target=mw>Dispatch Register</a></td>");
-	   out.println("<td><iframe name=mw width=600 height=600 frameborder=0></iframe></td></tr>");
+	   out.println("<tr><td valign=top><a href=DispatchVeiw target=mw>Dispatch Register</a></td>");
+	   out.println("<tr><td valign=top><a href=TrackingVeiw target=mw>Tracking</a></td>");
+	   out.println("<td><iframe name=mw width=800 height=600 frameborder=0></iframe></td></tr>");
 	   out.print("</table></html>"); 	
 	   out.flush();
 	}
-
 }

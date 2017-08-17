@@ -9,12 +9,13 @@ public class EmployeeController {
     	   try{
     		   Connection cn=Dbhelper.openConnection();
     		                                                                                                                                        
-               String q="Insert into Employee (employeename,dob,address,country,state,city,Phone,mobile,qualification,designation,photograph,password) values ('"+E.getEmployeename()+"','"+E.getDob()+"','"+E.getAddress()+"','"+E.getCountry()+"','"+E.getState()+"','"+E.getCity()+"','"+E.getPhone()+"','"+E.getMobile()+"','"+E.getQualification()+"','"+E.getDesignation()+"','"+E.getPhotograph()+"','"+E.getPassword()+"')";
+               String q="Insert into employee (employeename,dob,address,country,state,city,Phone,mobile,qualification,designation,photograph,password) values('"+E.getEmployeename()+"','"+E.getDob()+"','"+E.getAddress()+"','"+E.getCountry()+"','"+E.getState()+"','"+E.getCity()+"','"+E.getPhone()+"','"+E.getMobile()+"','"+E.getQualification()+"','"+E.getDesignation()+"','"+E.getPhotograph()+"','"+E.getPassword()+"')";
                boolean st=Dbhelper.executeupdate(cn, q);
+               System.out.println(q);
                return (st);
            }
     	   catch(Exception e){
-    		   System.out.println("EmployeeController:addNewRecord:"+e);
+    		   System.out.println("EmployeeController addNewRecord:"+e);
     		   return false;	
     	   }
        }
@@ -126,13 +127,13 @@ public class EmployeeController {
  		try
  		{
  			Connection cn=Dbhelper.openConnection();
- 			String q="select * from employee where id='"+aid+"'and password='"+password+"'";
+ 			String q="select * from employee where employeeid='"+aid+"'and password='"+password+"'";
  			ResultSet rs=Dbhelper.executequery(cn, q);
  			if(rs.next())
  			{
  				Employee C=new Employee();
  				C.setEmployeeid(rs.getShort(1));
- 				C.setPassword(rs.getString(16));
+ 				C.setPassword(rs.getString(13));
  				return C;
  			}
  			else
