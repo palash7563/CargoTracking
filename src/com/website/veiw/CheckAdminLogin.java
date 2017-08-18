@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,6 +38,33 @@ public class CheckAdminLogin extends HttpServlet {
 		String aid=request.getParameter("aid");
 		String password=request.getParameter("password");
 		Admin a=AdminController.checkpassword(aid, password);
+		Cookie c[]=request.getCookies();
+		if(c==null && a!=null)
+		{
+			Cookie loginid=new Cookie("LoginId",aid);
+			loginid.setMaxAge(999999999);
+			response.addCookie(loginid);
+			Cookie loginpassword=new Cookie("LoginPassword",password);
+			loginpassword.setMaxAge(999999999);
+			response.addCookie(loginpassword);
+		}
+		else
+		{
+			Cookie cc=null;
+			for(int i=0;i<c.length;i++)
+			{
+				if(c[i].getName().equals("LoginId"))
+				{
+					cc=c[i];
+					continue;
+				}
+				if(c[i].getName().equals("LoginPassword"))
+				{
+					cc=c[i];
+					continue;
+				}
+			}
+		}
 		if(a!=null)
 		{
 			HttpSession ses=request.getSession();
@@ -46,7 +74,7 @@ public class CheckAdminLogin extends HttpServlet {
 		}
 		else
 		{
-			out.println("Wrong Password/ID !!!");
+			out.println("Invalid Password/ID !!!");
 		}
 	}
 }
