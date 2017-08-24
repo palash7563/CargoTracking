@@ -33,6 +33,20 @@ public class AdminLogout extends HttpServlet {
 		// TODO Auto-generated method stub
 		HttpSession ses=request.getSession();
 		ses.invalidate();
+		Cookie cc[]=request.getCookies();
+		for(int i=0;i<cc.length;i++)
+		{
+			if(cc[i].getName().equals("LoginId"))
+			{
+				cc[i].setValue(null);
+				cc[i].setMaxAge(0);
+			}
+			if(cc[i].getName().equals("LoginPassword"))
+			{
+				cc[i].setValue(null);
+				cc[i].setMaxAge(0);
+			}
+		}
 		response.sendRedirect("Adminlogin");
 		
 	}
